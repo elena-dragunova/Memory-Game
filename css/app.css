@@ -1,0 +1,197 @@
+html {
+    box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #ffffff url('../img/geometry2.png'); /* Background pattern from Subtle Patterns */
+    font-family: 'Coda', cursive;
+    position: relative;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+h1 {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+}
+
+/*
+ * Styles for the deck of cards
+ */
+
+.deck {
+    width: 660px;
+    min-height: 680px;
+    background: linear-gradient(160deg, #02ccba 0%, #aa7ecd 100%);
+    padding: 32px;
+    border-radius: 10px;
+    box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 0 3em;
+}
+
+.deck .card {
+    height: 125px;
+    width: 125px;
+    background: #2e3d49;
+    font-size: 0;
+    color: #ffffff;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
+}
+
+.deck .card i {
+    pointer-events: none;
+}
+
+.deck .card.open {
+    transform: rotateY(0);
+    background: #02b3e4;
+    cursor: default;
+}
+
+.deck .card.show {
+    font-size: 33px;
+}
+
+.deck .card.match {
+    cursor: default;
+    background: #02ccba;
+    font-size: 33px;
+}
+
+/*
+ * Styles for the Score Panel
+ */
+
+.score-panel {
+    text-align: left;
+    width: 345px;
+    margin-bottom: 10px;
+}
+
+.score-panel .stars,
+.modal-score {
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    margin: 0 5px 0 0;
+}
+
+.score-panel .stars li,
+.modal-score li {
+    list-style: none;
+    display: inline-block;
+}
+
+.modal-score {
+    margin-left: 15px;
+}
+
+.score-panel .timer,
+.modal-time {
+    margin-left: 10px;
+}
+
+.score-panel .restart {
+    float: right;
+    cursor: pointer;
+}
+
+/* Modal Window */
+
+.modal-window {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: none;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.7);
+    z-index: 999;
+    -webkit-animation: fade .6s;
+    -moz-animation: fade .6s;
+    animation: fade .6s;
+    overflow: auto;
+}
+
+.modal-window.shown {
+    display: block;
+}
+
+.pop-up {
+    width: 610px;
+    margin: 0 auto;
+    margin-top: 110px;
+    padding: 40px 30px;
+    background-color: #fff;
+    border-radius: 10px;
+    border: 10px solid #56aed2;
+    text-align: center;
+    position: relative;
+}
+
+.pop-up .close-modal {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 30px;
+    height: 30px;
+    border: none;
+    color: #333;
+    background-color: #fff;
+    font-size: 20px;
+    cursor: pointer;
+    outline: none;
+}
+
+.pop-up h2 {
+    text-align: center;
+    font-size: 40px;
+    margin: 0;
+    color: #56aed2;
+}
+
+.pop-up button.play {
+    width: 150px;
+    height: 40px;
+    color: #fff;
+    background-color: #56aed2;
+    border: none;
+    font-size: 18px;
+    text-transform: uppercase;
+    outline: none;
+    cursor: pointer;
+}
+
+.pop-up button.play:hover,
+.pop-up button.play:focus,
+.pop-up button.play:active {
+    background-color: #7FDBFF;
+}
